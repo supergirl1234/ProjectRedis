@@ -32,10 +32,7 @@ public class SETCommand implements Command {
         Database database=Database.getObject();
         Map<String,String> string=database.getString();
         string.put(key,value);
-       /* String str=Database.getString(key);
-        str.
-       str=new String(value);
-        System.out.println(Database.getString(key));*/
+
         Protocol.writeInteger(os,1);
 
     }

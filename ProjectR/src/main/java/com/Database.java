@@ -26,21 +26,20 @@ public class Database {
     }
 
 
-    public  Map<String, String> getString() {
+
+//    string
+   public  Map<String, String> getString() {
         return string;
     }
-
-
     public  String getString(String key){
 
         String str=string.get(key);
-       /* if(str==null){
-            str=new String(" ");
-            string.put(key,str);
-
-        }*/
         return  str;
     }
+
+
+
+    /*list*/
     /*key：chen*/
     public  List<String> getList(String key){
         List<String>  li=list.get(key);
@@ -54,6 +53,8 @@ public class Database {
         return  li;
     }
 
+
+    /*hash*/
     public  Map<String,String> getMap(String key){
         Map<String,String> map=hash.get(key);
         if(map==null){
@@ -61,6 +62,5 @@ public class Database {
             hash.put(key,map);
         }
         return  map;
-
     }
 }

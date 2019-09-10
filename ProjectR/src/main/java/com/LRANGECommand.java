@@ -29,22 +29,11 @@ public class LRANGECommand  implements  Command{
        int end= Integer.parseInt(new String((byte[])args.get(2)));
         Database database=Database.getObject();
         List<String> list=database.getList(key);
-      /*  if(list.size()==0){
-            try {
-                Protocol.writeNull(os);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }else {*/
-            //List<String> result = new ArrayList<>();//存放结果的
+
             if (end<0) {
 
                 end = list.size() + end;
             }
-            /*for (int i = start; i < end; i++) {
-                String str = list.get(i);
-                result.add(str);
-            }*/
 
             List<String> result = list.subList(start, end + 1);
             try {

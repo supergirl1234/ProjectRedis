@@ -36,7 +36,7 @@ public class HGETCommand implements  Command {
                Protocol.writeNull(os);
            }else{
 
-               Protocol.writeBulkString(os,value);/*为什么不用writeString*/
+               Protocol.writeBulkString(os,value);
            }
 
     }

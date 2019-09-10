@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Protocol {
 
-
+    /*读取客户端输入的数据*/
     public static Command readCommand(InputStream in) throws Exception {
         Object object = read(in);
         if (!(object instanceof List)) {
@@ -42,6 +42,7 @@ public class Protocol {
         return command;
     }
 
+    /*对输入的数据判断一下是什么类型*/
     public static Object read(InputStream in) throws Exception {
 
         int o = in.read();
@@ -50,6 +51,7 @@ public class Protocol {
             throw new RuntimeException("不应该读到数据结尾");
         }
         switch (o) {
+            /*reids内部也会对输入的数据做解析*/
             // Simple String
             case '+':
                 return readSimpleString(in);
@@ -283,14 +285,4 @@ public class Protocol {
         }
     }
 
-    public static void writeString(OutputStream os, String str) {
-
-        try {
-            os.write('+');
-            os.write(str.getBytes());//内容
-            os.write("\r\n".getBytes());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
